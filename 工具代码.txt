@@ -1,0 +1,129 @@
+1:
+$(document).ready(function(){
+    	$('#btn').click(function(){
+    		riskevalute_items
+    		arr=[];
+    		for(var i=0;i<riskevalute_items.length;i++){
+    			arr.push("-1");
+    		}
+    		$.cookie("res", arr.join(",") , { expires: 1 });
+    		change_window_location("riskevaluate.html?page=1");    		
+    	});
+    });
+
+
+4.//限制输入框只能显示数字(有小数点)
+	$('.text').keypress(function(e) {
+        if (!String.fromCharCode(e.keyCode).match(/[0-9\.]/)) {
+            return false;
+        }
+    });
+//无小数点，纯数字
+$('.text').keypress(function(e) {
+        if (!String.fromCharCode(e.keyCode).match(/^[1-9]\d*$|^0$/)) {
+            return false;
+        }
+    });
+
+//控制输入框只能输入数字
+$('.only_num').keydown(function(e) {
+    if(e.keyCode>=48&&e.keyCode<=57) {
+        return true;
+    }
+    if(e.keyCode>=96&&e.keyCode<=105) {
+        return true;
+    }
+    if(e.keyCode==9||e.keyCode==8||e.keyCode==46||e.keyCode==37||e.keyCode==39||e.keyCode==13) { // 9=tab、8=backspace、46=deletel、37=←、39=→、13=enter
+        return true;
+    }
+    if(e.ctrlKey&&e.keyCode==86){ // ctrl+v
+        return true;
+    }
+    return false;
+})
+
+onKeyUp="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
+
+5.内容溢出用三个点代替
+white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width: 70px;
+
+text-overflow:ellipsis;overflow:hidden;max-width: 70px;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+
+6.垂直居中
+.middle-demo-3{
+display:table
+}
+
+.middle-demo-3 div{
+display: table-cell;
+height: 300px;
+vertical-align: middle;
+}
+
+7.上传头像
+ <form id="submit_form" method="post" target="exec_target" enctype="multipart/form-data" style="display: none">
+     <input id="upload" accept="image/*" name="avatar" type="file"/>
+     <input id="ipt_afa_token" name="afa_token" type="text"/>
+     <input name="a" type="text" value="update_avatar"/>
+ </form>
+$("#upload").change(function(){
+   if($("#upload").val() != '') {
+        var formData = new FormData($("#submit_form")[0]);
+        $.ajax({
+            url : "/tornado/user",
+            type : "POST",
+            data : formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            success : function(result) {
+               
+            },
+            error : function(data) {
+               
+            }
+       });
+   }
+});
+注意：
+Ajax的processData设置为false。因为data值是FormData对象，不需要对数据做处理。
+第二种方式中<form>标签加enctyp　　e="multipart/form-data"属性。
+cache设置为false，上传文件不需要缓存。
+contentType设置为false。因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="mutipart/form-data"，所以这里设置为false。
+
+
+
+8.锚点不算记录
+  function b(obj){
+	location.replace(obj.href);
+   }
+$("#href_all a").click(function(){
+			b(this);
+			return false;
+		})
+
+
+9.2017-01-01标准时间转时间戳
+new Date（2017，01，01） 
+str = str.replace(/-/g,'/'); // 将-替换成/
+参数可以是2013/03/08 17:20
+
+
+10.Array对象的方法有： 
+concat() 连接两个或更多的数组，并返回结果。 
+join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。 
+pop() 删除并返回数组的最后一个元素。 
+push() 向数组的末尾添加一个或更多元素，并返回新的长度。 
+reverse() 颠倒数组中元素的顺序。 
+shift() 删除并返回数组的第一个元素 
+slice() 从某个已有的数组返回选定的元素 
+sort() 对数组的元素进行排序 
+splice() 删除元素，并向数组添加新元素。 
+toSource() 返回该对象的源代码。 
+toString() 把数组转换为字符串，并返回结果。 
+toLocaleString() 把数组转换为本地数组，并返回结果。 
+unshift() 向数组的开头添加一个或更多元素，并返回新的长度。 
+valueOf() 返回数组对象的原始值。 
