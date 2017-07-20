@@ -1,31 +1,40 @@
-1:
-$(document).ready(function(){
-    	$('#btn').click(function(){
-    		riskevalute_items
-    		arr=[];
-    		for(var i=0;i<riskevalute_items.length;i++){
-    			arr.push("-1");
-    		}
-    		$.cookie("res", arr.join(",") , { expires: 1 });
-    		change_window_location("riskevaluate.html?page=1");    		
-    	});
-    });
+1.å“åº”å¼ç½‘ç«™å¼€å‘çš„å‡†å¤‡å·¥ä½œ
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">  
+<meta name="keywords" content="é˜¿æ³•é‡‘è,afajinrong,afafin,afafin.com,é˜¿æ³•,é˜¿å‘,é˜¿å‘ç‹—,é˜¿æ³•ç‹—,é˜¿æ³•ç‹—é‡‘è,æœºå™¨äººæŠ•é¡¾,æœºå™¨äººæŠ•èµ„é¡¾é—®,æ™ºèƒ½æŠ•é¡¾,è‚¡ç¥¨é¢„æµ‹,é¢„æµ‹è‚¡ç¥¨,å¤§ç›˜é¢„æµ‹,é¢„æµ‹å¤§ç›˜,æœºå™¨äººé¢„æµ‹">
+<meta name="description" content="é˜¿æ³•é‡‘èæ˜¯å›½å†…é¢†å…ˆçš„æœºå™¨äººæŠ•èµ„é¡¾é—®ï¼Œä¸ºè¯åˆ¸æŠ•èµ„è€…æä¾›å®æ—¶ã€ä¸“ä¸šçš„æŠ•é¡¾æœåŠ¡ã€‚æ‚¨å¯ä»¥å…³æ³¨æˆ‘ä»¬çš„å¾®ä¿¡å·ï¼šé˜¿æ³•é‡‘è">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="format-detection" content="telephone=no" />  
+
+<script type="text/javascript">
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?4c136087d17176baf10f074fa8a5be08";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 
 
-4.//ÏŞÖÆÊäÈë¿òÖ»ÄÜÏÔÊ¾Êı×Ö(ÓĞĞ¡Êıµã)
+4.//é™åˆ¶è¾“å…¥æ¡†åªèƒ½æ˜¾ç¤ºæ•°å­—(æœ‰å°æ•°ç‚¹)
 	$('.text').keypress(function(e) {
         if (!String.fromCharCode(e.keyCode).match(/[0-9\.]/)) {
             return false;
         }
     });
-//ÎŞĞ¡Êıµã£¬´¿Êı×Ö
+//æ— å°æ•°ç‚¹ï¼Œçº¯æ•°å­—
 $('.text').keypress(function(e) {
         if (!String.fromCharCode(e.keyCode).match(/^[1-9]\d*$|^0$/)) {
             return false;
         }
     });
 
-//¿ØÖÆÊäÈë¿òÖ»ÄÜÊäÈëÊı×Ö
+//æ§åˆ¶è¾“å…¥æ¡†åªèƒ½è¾“å…¥æ•°å­—
 $('.only_num').keydown(function(e) {
     if(e.keyCode>=48&&e.keyCode<=57) {
         return true;
@@ -33,7 +42,7 @@ $('.only_num').keydown(function(e) {
     if(e.keyCode>=96&&e.keyCode<=105) {
         return true;
     }
-    if(e.keyCode==9||e.keyCode==8||e.keyCode==46||e.keyCode==37||e.keyCode==39||e.keyCode==13) { // 9=tab¡¢8=backspace¡¢46=deletel¡¢37=¡û¡¢39=¡ú¡¢13=enter
+    if(e.keyCode==9||e.keyCode==8||e.keyCode==46||e.keyCode==37||e.keyCode==39||e.keyCode==13) { // 9=tabã€8=backspaceã€46=deletelã€37=â†ã€39=â†’ã€13=enter
         return true;
     }
     if(e.ctrlKey&&e.keyCode==86){ // ctrl+v
@@ -44,7 +53,7 @@ $('.only_num').keydown(function(e) {
 
 onKeyUp="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
 
-5.ÄÚÈİÒç³öÓÃÈı¸öµã´úÌæ
+5.å†…å®¹æº¢å‡ºç”¨ä¸‰ä¸ªç‚¹ä»£æ›¿
 white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width: 70px;
 
 text-overflow:ellipsis;overflow:hidden;max-width: 70px;
@@ -52,7 +61,7 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 -webkit-box-orient: vertical;
 
-6.´¹Ö±¾ÓÖĞ
+6.å‚ç›´å±…ä¸­
 .middle-demo-3{
 display:table
 }
@@ -63,7 +72,7 @@ height: 300px;
 vertical-align: middle;
 }
 
-7.ÉÏ´«Í·Ïñ
+7.ä¸Šä¼ å¤´åƒ
  <form id="submit_form" method="post" target="exec_target" enctype="multipart/form-data" style="display: none">
      <input id="upload" accept="image/*" name="avatar" type="file"/>
      <input id="ipt_afa_token" name="afa_token" type="text"/>
@@ -88,15 +97,15 @@ $("#upload").change(function(){
        });
    }
 });
-×¢Òâ£º
-AjaxµÄprocessDataÉèÖÃÎªfalse¡£ÒòÎªdataÖµÊÇFormData¶ÔÏó£¬²»ĞèÒª¶ÔÊı¾İ×ö´¦Àí¡£
-µÚ¶şÖÖ·½Ê½ÖĞ<form>±êÇ©¼Óenctyp¡¡¡¡e="multipart/form-data"ÊôĞÔ¡£
-cacheÉèÖÃÎªfalse£¬ÉÏ´«ÎÄ¼ş²»ĞèÒª»º´æ¡£
-contentTypeÉèÖÃÎªfalse¡£ÒòÎªÊÇÓÉ<form>±íµ¥¹¹ÔìµÄFormData¶ÔÏó£¬ÇÒÒÑ¾­ÉùÃ÷ÁËÊôĞÔenctype="mutipart/form-data"£¬ËùÒÔÕâÀïÉèÖÃÎªfalse¡£
+æ³¨æ„ï¼š
+Ajaxçš„processDataè®¾ç½®ä¸ºfalseã€‚å› ä¸ºdataå€¼æ˜¯FormDataå¯¹è±¡ï¼Œä¸éœ€è¦å¯¹æ•°æ®åšå¤„ç†ã€‚
+ç¬¬äºŒç§æ–¹å¼ä¸­<form>æ ‡ç­¾åŠ enctypã€€ã€€e="multipart/form-data"å±æ€§ã€‚
+cacheè®¾ç½®ä¸ºfalseï¼Œä¸Šä¼ æ–‡ä»¶ä¸éœ€è¦ç¼“å­˜ã€‚
+contentTypeè®¾ç½®ä¸ºfalseã€‚å› ä¸ºæ˜¯ç”±<form>è¡¨å•æ„é€ çš„FormDataå¯¹è±¡ï¼Œä¸”å·²ç»å£°æ˜äº†å±æ€§enctype="mutipart/form-data"ï¼Œæ‰€ä»¥è¿™é‡Œè®¾ç½®ä¸ºfalseã€‚
 
 
 
-8.Ãªµã²»Ëã¼ÇÂ¼
+8.é”šç‚¹ä¸ç®—è®°å½•
   function b(obj){
 	location.replace(obj.href);
    }
@@ -106,24 +115,39 @@ $("#href_all a").click(function(){
 		})
 
 
-9.2017-01-01±ê×¼Ê±¼ä×ªÊ±¼ä´Á
-new Date£¨2017£¬01£¬01£© 
-str = str.replace(/-/g,'/'); // ½«-Ìæ»»³É/
-²ÎÊı¿ÉÒÔÊÇ2013/03/08 17:20
+9.2017-01-01æ ‡å‡†æ—¶é—´è½¬æ—¶é—´æˆ³
+new Dateï¼ˆ2017ï¼Œ01ï¼Œ01ï¼‰ 
+str = str.replace(/-/g,'/'); // å°†-æ›¿æ¢æˆ/
+å‚æ•°å¯ä»¥æ˜¯2013/03/08 17:20
 
 
-10.Array¶ÔÏóµÄ·½·¨ÓĞ£º 
-concat() Á¬½ÓÁ½¸ö»ò¸ü¶àµÄÊı×é£¬²¢·µ»Ø½á¹û¡£ 
-join() °ÑÊı×éµÄËùÓĞÔªËØ·ÅÈëÒ»¸ö×Ö·û´®¡£ÔªËØÍ¨¹ıÖ¸¶¨µÄ·Ö¸ô·û½øĞĞ·Ö¸ô¡£ 
-pop() É¾³ı²¢·µ»ØÊı×éµÄ×îºóÒ»¸öÔªËØ¡£ 
-push() ÏòÊı×éµÄÄ©Î²Ìí¼ÓÒ»¸ö»ò¸ü¶àÔªËØ£¬²¢·µ»ØĞÂµÄ³¤¶È¡£ 
-reverse() µßµ¹Êı×éÖĞÔªËØµÄË³Ğò¡£ 
-shift() É¾³ı²¢·µ»ØÊı×éµÄµÚÒ»¸öÔªËØ 
-slice() ´ÓÄ³¸öÒÑÓĞµÄÊı×é·µ»ØÑ¡¶¨µÄÔªËØ 
-sort() ¶ÔÊı×éµÄÔªËØ½øĞĞÅÅĞò 
-splice() É¾³ıÔªËØ£¬²¢ÏòÊı×éÌí¼ÓĞÂÔªËØ¡£ 
-toSource() ·µ»Ø¸Ã¶ÔÏóµÄÔ´´úÂë¡£ 
-toString() °ÑÊı×é×ª»»Îª×Ö·û´®£¬²¢·µ»Ø½á¹û¡£ 
-toLocaleString() °ÑÊı×é×ª»»Îª±¾µØÊı×é£¬²¢·µ»Ø½á¹û¡£ 
-unshift() ÏòÊı×éµÄ¿ªÍ·Ìí¼ÓÒ»¸ö»ò¸ü¶àÔªËØ£¬²¢·µ»ØĞÂµÄ³¤¶È¡£ 
-valueOf() ·µ»ØÊı×é¶ÔÏóµÄÔ­Ê¼Öµ¡£ 
+10.Arrayå¯¹è±¡çš„æ–¹æ³•æœ‰ï¼š 
+concat() è¿æ¥ä¸¤ä¸ªæˆ–æ›´å¤šçš„æ•°ç»„ï¼Œå¹¶è¿”å›ç»“æœã€‚ 
+join() æŠŠæ•°ç»„çš„æ‰€æœ‰å…ƒç´ æ”¾å…¥ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚å…ƒç´ é€šè¿‡æŒ‡å®šçš„åˆ†éš”ç¬¦è¿›è¡Œåˆ†éš”ã€‚ 
+pop() åˆ é™¤å¹¶è¿”å›æ•°ç»„çš„æœ€åä¸€ä¸ªå…ƒç´ ã€‚ 
+push() å‘æ•°ç»„çš„æœ«å°¾æ·»åŠ ä¸€ä¸ªæˆ–æ›´å¤šå…ƒç´ ï¼Œå¹¶è¿”å›æ–°çš„é•¿åº¦ã€‚ 
+reverse() é¢ å€’æ•°ç»„ä¸­å…ƒç´ çš„é¡ºåºã€‚ 
+shift() åˆ é™¤å¹¶è¿”å›æ•°ç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´  
+slice() ä»æŸä¸ªå·²æœ‰çš„æ•°ç»„è¿”å›é€‰å®šçš„å…ƒç´  
+sort() å¯¹æ•°ç»„çš„å…ƒç´ è¿›è¡Œæ’åº 
+splice() åˆ é™¤å…ƒç´ ï¼Œå¹¶å‘æ•°ç»„æ·»åŠ æ–°å…ƒç´ ã€‚ 
+toSource() è¿”å›è¯¥å¯¹è±¡çš„æºä»£ç ã€‚ 
+toString() æŠŠæ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²ï¼Œå¹¶è¿”å›ç»“æœã€‚ 
+toLocaleString() æŠŠæ•°ç»„è½¬æ¢ä¸ºæœ¬åœ°æ•°ç»„ï¼Œå¹¶è¿”å›ç»“æœã€‚ 
+unshift() å‘æ•°ç»„çš„å¼€å¤´æ·»åŠ ä¸€ä¸ªæˆ–æ›´å¤šå…ƒç´ ï¼Œå¹¶è¿”å›æ–°çš„é•¿åº¦ã€‚ 
+valueOf() è¿”å›æ•°ç»„å¯¹è±¡çš„åŸå§‹å€¼ã€‚ 
+
+
+11.è·å–å¤é€‰æ¡†é€‰ä¸­çŠ¶æ€
+$("#check").is(":checked")
+
+
+12.å»æ‰å‰åç©ºæ ¼
+ function Trim(str){ return str.replace(/(^\s*)|(\s*$)/g, ""); }        JQï¼š$.trim(str)
+
+å»æ‰æ‰€æœ‰ç©ºæ ¼ï¼š
+text   =   text.replace(/\s/ig,'');
+
+
+13.è§£æå­—ç¬¦ä¸²ä¸­çš„æ•°å­—
+s.replace(/[^0-9]/ig,"");
