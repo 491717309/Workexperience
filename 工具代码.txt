@@ -151,3 +151,7 @@ text   =   text.replace(/\s/ig,'');
 
 13.解析字符串中的数字
 s.replace(/[^0-9]/ig,"");
+
+14.CSS3样式居中方法
+#box{display: flex;display: -webkit-flex;flex-direction:column;justify-content:center;-webkit-justify-content: center;}
+.boxchidl{display: flex;flex-direction:column;-webkit-flex-direction: column;align-items: center;}
