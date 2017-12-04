@@ -1,253 +1,89 @@
-1.响应式网站开发的准备工作
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="renderer" content="webkit" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">  
-<meta name="keywords" content="阿法金融,afajinrong,afafin,afafin.com,阿法,阿发,阿发狗,阿法狗,阿法狗金融,机器人投顾,机器人投资顾问,智能投顾,股票预测,预测股票,大盘预测,预测大盘,机器人预测">
-<meta name="description" content="阿法金融是国内领先的机器人投资顾问，为证券投资者提供实时、专业的投顾服务。您可以关注我们的微信号：阿法金融">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-title" content="标题"> <!-- 添加到主屏后的标题（iOS 6 新增） -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="msapplication-tap-highlight" content="no" />
-<meta name="format-detection" content="telephone=no" />  <!-- 禁止数字识自动别为电话号码 -->
+Webpack菜鸟入门
+1.什么是webpack?
+模块化，
 
-<script type="text/javascript">
-	var _hmt = _hmt || [];
-	(function() {
-		var hm = document.createElement("script");
-		hm.src = "//hm.baidu.com/hm.js?4c136087d17176baf10f074fa8a5be08";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hm, s);
-	})();
-</script>
-百度禁止转码
+Webpack工作方式
+Webpack可以看作是模块打包机，它可以分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。
 
-通过百度手机打开网页时，百度可能会对你的网页进行转码，脱下你的衣服，往你的身上贴狗皮膏药的广告，为此可在 head 内添加
+2.webpack安装。
+Webpack基于node环境，所以必须先安装node 安装完之后，命令输入node -v 显示版本号则表示node安装成功。
+Node安装成功npm也会安装，命令npm -v显示版本号则表示安装成功
 
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+国外npm安装比较慢，推荐镜像国内淘宝镜像
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 
+//全局安装（推荐） 
+cnpm install webpack -g
 
+//局部安装到项目中
+cnpm install webpack --save-dev
 
+3.创建项目
+1.创建webpack目录
 
-4.//限制输入框只能显示数字(有小数点)
-	$('.text').keypress(function(e) {
-        if (!String.fromCharCode(e.keyCode).match(/[0-9\.]/)) {
-            return false;
-        }
-    });
-//无小数点，纯数字
-$('.text').keypress(function(e) {
-        if (!String.fromCharCode(e.keyCode).match(/^[1-9]\d*$|^0$/)) {
-            return false;
-        }
-    });
+进入目录webpack 输入命令 cnpm init -y 生成package.json文件
+2.在webpack目录下创建main.js文件代码如下：
 
-//控制输入框只能输入数字
-$('.only_num').keydown(function(e) {
-    if(e.keyCode>=48&&e.keyCode<=57) {
-        return true;
-    }
-    if(e.keyCode>=96&&e.keyCode<=105) {
-        return true;
-    }
-    if(e.keyCode==9||e.keyCode==8||e.keyCode==46||e.keyCode==37||e.keyCode==39||e.keyCode==13) { // 9=tab、8=backspace、46=deletel、37=←、39=→、13=enter
-        return true;
-    }
-    if(e.ctrlKey&&e.keyCode==86){ // ctrl+v
-        return true;
-    }
-    return false;
-})
+3.在webpack目录下创建index.html文件代码如下：
 
-onKeyUp="value=value.replace(/[^\d]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"
+4.使用webpack命令打包：
+1.进入项目目录  cd app
+2.
+3.得到结果：
 
-5.内容溢出用三个点代替
-white-space:nowrap;text-overflow:ellipsis;overflow:hidden;max-width: 70px;
+表示打包成功。
+4.在浏览器运行index.html文件就能看到 hello world 了
+4.项目配置
+1.创建配置文件webpack.config.js，
+2.该文件会暴露出一个对象，格式如下：
+　　　　module.exports = {
+　　　　　　//配置项
+　　　　}
+3.常用配置项说明
 
-text-overflow:ellipsis;overflow:hidden;max-width: 70px;
-display: -webkit-box;
--webkit-line-clamp: 2;
--webkit-box-orient: vertical;
-
-6.垂直居中
-.middle-demo-3{
-display:table
-}
-
-.middle-demo-3 div{
-display: table-cell;
-height: 300px;
-vertical-align: middle;
-}
-
-7.上传头像
- <form id="submit_form" method="post" target="exec_target" enctype="multipart/form-data" style="display: none">
-     <input id="upload" accept="image/*" name="avatar" type="file"/>
-     <input id="ipt_afa_token" name="afa_token" type="text"/>
-     <input name="a" type="text" value="update_avatar"/>
- </form>
-$("#upload").change(function(){
-   if($("#upload").val() != '') {
-        var formData = new FormData($("#submit_form")[0]);
-        $.ajax({
-            url : "/tornado/user",
-            type : "POST",
-            data : formData,
-            dataType: 'json',
-            contentType: false,
-            processData: false,
-            success : function(result) {
-               
-            },
-            error : function(data) {
-               
-            }
-       });
-   }
-});
-注意：
-Ajax的processData设置为false。因为data值是FormData对象，不需要对数据做处理。
-第二种方式中<form>标签加enctyp　　e="multipart/form-data"属性。
-cache设置为false，上传文件不需要缓存。
-contentType设置为false。因为是由<form>表单构造的FormData对象，且已经声明了属性enctype="mutipart/form-data"，所以这里设置为false。
+　
+5.配置项目配置完成之后。输入命令webpack 就能直接打包了
 
 
+5.Loader
+1.webpack只能处理JavaScript模块。需要处理其他文件就需要loader转换。所以用到的css就需要css-loader和style-loader前者遍历css处理，后者把css代码插入页面中的style标签中。
+2.安装css-loader和style-loade，同时安装中间加空格就好。坑：（此处全局安装，打包时候会报错）
 
-8.锚点不算记录
-  function b(obj){
-	location.replace(obj.href);
-   }
-$("#href_all a").click(function(){
-			b(this);
-			return false;
-		})
+3.创建style.css文件,代码如下：
 
+4.修改main.js代码如下
+5.运行命令webpack
 
-9.2017-01-01标准时间转时间戳
-new Date（2017，01，01） 
-str = str.replace(/-/g,'/'); // 将-替换成/
-参数可以是2013/03/08 17:20
+6.开发环境
+1.当项目逐渐变大，webpack 的编译时间会变长，可以通过参数让编译的输出内容带有进度和颜色
+
+2.还可以让没有变动的模块缓存，加快代码编译的速度
 
 
-10.Array对象的方法有： 
-concat() 连接两个或更多的数组，并返回结果。 
-join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。 
-pop() 删除并返回数组的最后一个元素。 
-push() 向数组的末尾添加一个或更多元素，并返回新的长度。 
-reverse() 颠倒数组中元素的顺序。 
-shift() 删除并返回数组的第一个元素 
-slice() 从某个已有的数组返回选定的元素 
-sort() 对数组的元素进行排序 
-splice() 删除元素，并向数组添加新元素。 
-toSource() 返回该对象的源代码。 
-toString() 把数组转换为字符串，并返回结果。 
-toLocaleString() 把数组转换为本地数组，并返回结果。 
-unshift() 向数组的开头添加一个或更多元素，并返回新的长度。 
-valueOf() 返回数组对象的原始值。 
+3. 安装webpack-dev-server开发服务，这样就能通过localhost启动静态web服务器，并监听模式自动运行webpack，能够自动刷新页面，加快开发效率。
+4.安装 ： 
+5.运行webpack-dev-server --progress --colors之后
+在浏览器打开http://localhost:8080/ 就可以看到结果了
+6.	优化命令
+打开之前生成的package.json文件，修改
 
+为：
 
-11.获取复选框选中状态
-$("#check").is(":checked")
+现在只要输入cnpm start就能运行了
 
+7.webpack+vue的开发
+Tip:之前全局安装过webpack了，就不再安装了
+1.创建文件夹 webpack-vue
+2.进入文件目录输入命令 cnpm install vue-cli -g
+3.输入命令 vue init webpack vueApp 运行之后需要填写一些信息，这里我们只填写第一个name项app其他直接回车默认
+4.之后项目目录这样的
+		
+5.之后命令进入项目目录 cd vueApp然后安装项目依赖输入命令 cnpm install （重要）安装时间较长，需要等待，安装完全之后项目构建完成
+6.安装完成后，命令输入cnpm run dev 将会自动打开浏览器地址为”http://localhost:8080/#/”的Vue例子，这时候修改项目保存，页面将自动实时刷新，并且编写代码过程出错，或显示屏幕上提醒，对开发过程来说效率大大的提高。
+如果你觉得输入命令过于长而麻烦易出错：你可以进入package.json文件修改”scripts”:{...}对象更改自己喜欢的命令，记住双引号和逗号，不然会报错。
+7.打包上线。当项目开发完成后，使用命令cnpm run build它将会生成一个dist文件夹，所有必要的代码都被压缩打包放进去了，此时文件后缀自动加hash值，html引入也自动补上hash后缀，然后只需要将dist文件夹放上服务器就上线成功。（介绍是这样介绍的，但是我本地运行dist文件里面的html打不开，控制台报错，引入路径出错（路径前面少了个点），不知道是不是服务端地址路径写法和本地地址路径写法不同，不清楚哪里出了问题。有点脑壳疼- -！）
+8.单文件Vue组件“.vue”后缀格式
 
-12.去掉前后空格
- function Trim(str){ return str.replace(/(^\s*)|(\s*$)/g, ""); }        JQ：$.trim(str)
-
-去掉所有空格：
-text   =   text.replace(/\s/ig,'');
-
-
-13.解析字符串中的数字
-s.replace(/[^0-9]/ig,"");
-
-14.CSS3样式居中方法
-#box{display: flex;display: -webkit-flex;flex-direction:column;justify-content:center;-webkit-justify-content: center;}
-.boxchidl{display: flex;flex-direction:column;-webkit-flex-direction: column;align-items: center;}
-
-15.获取设备信息
-(function () {
-    var canvas = document.createElement('canvas'),
-        gl = canvas.getContext('experimental-webgl'),
-        debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-
-    console.log(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL));
-})();
-
-16.图片占位符
-<img  src="img/3.jpg" onload="this.src='default.jpg'" onerror="this.src='error.jpg'"/> 
-
-
-17.数组去重复
-（高效）
-Array.prototype.delRepeat = function(){
- var res = [];
- var json = {};
- for(var i = 0; i < this.length; i++){
-  if(!json[this[i]]){
-   res.push(this[i]);
-   json[this[i]] = 1;
-  }
- }
- return res;
-}
-（最高效）
-Array.prototype.delRepeat = function () {
-        var temp = {};
-        for (var i = 0; i < this.length; i++) {
-            var tmp = this[i];
-            if (!temp.hasOwnProperty(tmp)) {//hasOwnProperty用来判断一个对象是否有你给出名称的属性或对象
-                temp[this[i]] = 1
-            }
-        }
-
-        var index = 0;
-        var tempArr = [];
-        for (var Key in temp) {
-            tempArr[index ++] = Key;
-        }
-        return tempArr;
-    }
-
-
-18.定时器重复点击清除bug解决
-var newTimer;//全局变量
-    function startTimer(){
-        newTimer=setInterval(function(){myTimer()},1000);
-    }
-    function myTimer(){
-        var d=new Date();
-        var i=d.toLocaleTimeString();
-        $('#test').html(i);
-    }
-    function stopTimer()
-    {
-        clearInterval(newTimer);
-    }
-    $(document).ready(function(){
-        $("#start").click(function(){
-                        myTimer();
-                        stopTimer();
-            startTimer();
-        });
-            $("#clear").click(function(){
-                        stopTimer();
-        });
-    })
-
-
-19.计算滚动条的宽度
-function getScrollbarWidth() {
-    var oP = document.createElement('p'),
-        styles = {
-            width: '100px',
-            height: '100px',
-            overflowY: 'scroll'
-        }, i, scrollbarWidth;
-    for (i in styles) oP.style[i] = styles[i];
-    document.body.appendChild(oP);
-    scrollbarWidth = oP.offsetWidth - oP.clientWidth;
-    oP.remove();
-    return scrollbarWidth;
-}
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!webpack!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+这里有几个坑填一下
+（1）<template></template>中只能有1个父级盒子。子集没有限制
+（2）
